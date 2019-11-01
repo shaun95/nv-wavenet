@@ -150,7 +150,7 @@ __global__ void nv_wavenet_singleBlock_8R(nv_wavenet_params<T_weight, T_data> pa
         T_data accum[BATCH_UNROLL];
 
         int row = threadIdx.x;
-        const int M = 4*R;
+        const int M = 4*R;  //  M = 256
 
         T_data zero = 0.f;
 
