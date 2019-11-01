@@ -110,7 +110,10 @@ __global__ void nv_wavenet_singleBlock_8R(nv_wavenet_params<T_weight, T_data> pa
             int row = threadIdx.x;
             nv_wavenet_prev<T_weight, T_data, R, BATCH_UNROLL>(sample, row, params.num_layers, params.maxDilation, batch_offset, params.batch_size, params.Wprev, params.L, params.xt, params.a_prev, params.dumpActivations);
         }
-
+        
+        // int R=64, int S=128, int A=256
+        // 64 residual channels, 128 skip channels, 256 audio channels
+        
         __syncthreads();
 
         if (threadIdx.x < 2*R) {
