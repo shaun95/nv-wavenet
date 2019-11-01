@@ -112,6 +112,9 @@ __global__ void nv_wavenet_singleBlock_8R(nv_wavenet_params<T_weight, T_data> pa
         }
         
         // int R=64, int S=128, int A=256
+        // R : the number of residual channels
+        // S : the number of skip channels
+        // A : the number of audio channels
         // 64 residual channels, 128 skip channels, 256 audio channels
         
         __syncthreads();
